@@ -1,0 +1,38 @@
+BEGIN 3:ahb2apb_if:fast__2:work
+    PREADY :  1:tb_top:fast:work
+    PRDATA :  1:tb_top:fast:work
+    HRDATA :  1:tb_top:fast:work
+    PENABLE :  1:tb_top:fast:work
+    HCLK :  1:tb_top:fast:work
+    PSLVERR :  1:tb_top:fast:work
+    HADDR :  1:tb_top:fast:work
+    HREADY :  1:tb_top:fast:work
+    HRESP :  1:tb_top:fast:work
+    HSELAHB :  1:tb_top:fast:work
+    PWRITE :  1:tb_top:fast:work
+    HWRITE :  1:tb_top:fast:work
+    PSELx :  1:tb_top:fast:work
+    PADDR :  1:tb_top:fast:work
+    HRESETn :  1:tb_top:fast:work
+    PWDATA :  1:tb_top:fast:work
+    HTRANS :  1:tb_top:fast:work
+    HWDATA :  1:tb_top:fast:work
+END 
+BEGIN 3:ahb2apb_if:fast__1:work
+    HWDATA :  1:pkg:fast:work
+    PRDATA :  1:pkg:fast:work
+    HADDR :  1:pkg:fast:work
+    HCLK :  1:pkg:fast:work
+    PWRITE :  1:pkg:fast:work
+    HRESP :  1:pkg:fast:work
+    HWRITE :  1:pkg:fast:work
+    HREADY :  1:pkg:fast:work
+    PENABLE :  1:pkg:fast:work
+    HRDATA :  1:pkg:fast:work
+    HTRANS :  1:pkg:fast:work
+    HSELAHB :  1:pkg:fast:work
+    PCLK :  1:pkg:fast:work
+    PADDR :  1:pkg:fast:work
+    PWDATA :  1:pkg:fast:work
+    PSELx :  1:pkg:fast:work
+END 
