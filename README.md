@@ -21,12 +21,6 @@ The verification environment validates protocol compliance, data integrity, and 
 
 ---
 
-## Protocols Verified
-- **AHB (Advanced High-performance Bus)**
-- **APB (Advanced Peripheral Bus)**
-
----
-
 ## Testbench Architecture
 The UVM testbench follows a layered architecture and includes:
 - AHB Agent (Sequencer, Driver, Monitor)
