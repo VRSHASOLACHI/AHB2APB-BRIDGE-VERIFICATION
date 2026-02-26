@@ -1,0 +1,319 @@
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 09:31:09 on Apr 18,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 09:31:09 on Apr 18,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module ahb2apb
+-- Compiling interface ahb2apb_if
+-- Compiling package pkg
+** Warning: ** while parsing file included at testbench.sv(5)
+** at ahb_sequence.sv(16): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+-- Compiling module tb_top
+-- Importing package pkg
+
+Top level modules:
+	tb_top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 09:31:11 on Apr 18,2025, Elapsed time: 0:00:02
+Errors: 0, Warnings: 1
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 09:31:11 on Apr 18,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	tb_top
+
+Analyzing design...
+-- Loading module tb_top
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Importing package pkg
+-- Loading package questa_uvm_pkg
+-- Loading interface ahb2apb_if
+-- Loading module ahb2apb
+Optimizing 7 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package pkg(fast)
+** Warning: ahb_sequence.sv(16): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+-- Optimizing module ahb2apb(fast)
+-- Optimizing module tb_top(fast)
+-- Optimizing interface ahb2apb_if(fast__2)
+-- Optimizing interface ahb2apb_if(fast)
+Optimized design name is qrun_opt
+End time: 09:31:18 on Apr 18,2025, Elapsed time: 0:00:07
+Errors: 0, Warnings: 2
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 09:31:18 on Apr 18,2025
+# Loading /tmp/unknown@9944bc29d51a_dpi_51/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.ahb2apb_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.pkg(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.ahb2apb_if(fast__2)
+# Loading work.ahb2apb(fast)
+# ** Warning: (vsim-8386) Illegal assignment to type 'enum reg pkg::cmn_seq_item::operation_e' from type 'reg': An enum variable may only be assigned the same enum typed variable or one of its values.
+#    Time: 0 ns  Iteration: 0  Region: /pkg File: ahb_monitor.sv Line: 35
+# Compiling /tmp/unknown@9944bc29d51a_dpi_51/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@9944bc29d51a_dpi_51/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+# UVM_INFO ahb_monitor.sv(20) @ 0: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Build phase completed
+# UVM_INFO apb_agent.sv(19) @ 0: uvm_test_top.env.apb_agnt [APB_AGENT] Starting build phase...
+# UVM_INFO apb_agent.sv(28) @ 0: uvm_test_top.env.apb_agnt [APB_AGENT] Build phase completed
+# UVM_INFO apb_driver.sv(18) @ 0: uvm_test_top.env.apb_agnt.pdriver [APB_DRIVER] Build phase completed
+# UVM_INFO apb_monitor.sv(20) @ 0: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Build phase completed
+# UVM_INFO apb_agent.sv(34) @ 0: uvm_test_top.env.apb_agnt [APB_AGENT] Connecting driver and sequencer...
+# UVM_INFO apb_agent.sv(38) @ 0: uvm_test_top.env.apb_agnt [APB_AGENT] Driver and sequencer connected
+# UVM_INFO my_test.sv(25) @ 0: uvm_test_top [MY_TEST] AHB2APB UVM Test running sequences!
+# UVM_ERROR apb_monitor.sv(46) @ 5: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 5: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_ERROR ahb_monitor.sv(30) @ 5: uvm_test_top.env.ahb_agnt.hmonitor [AHB_ASSERTION] Invalid AHB transfer! HSEL=x, HTRANS=x at time 5
+# UVM_INFO ahb_driver.sv(40) @ 5: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x7e5, Data=0x534bce33, op=WRITE, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 5: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x7e5, HRESP=1
+# UVM_INFO single_write_seq.sv(22) @ 5: uvm_test_top.env.ahb_agnt.hsequencer@@sw_seq [SEQUENCE] Single Write: Addr=0x7e5 Data=0x534bce33 Slave=7
+# UVM_ERROR apb_monitor.sv(46) @ 15: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 15: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_WARNING ahb_driver.sv(60) @ 15: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x7e5, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 15: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x7e5, Data=0x534bce33, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 15: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_ERROR apb_monitor.sv(46) @ 25: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 25: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 25: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x36b, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 25: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x36b, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 25: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x7e5, Data=0x534bce33, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 25: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO single_read_seq.sv(21) @ 25: uvm_test_top.env.ahb_agnt.hsequencer@@sr_seq [SEQUENCE] Single Read: Addr=0x36b Slave=3
+# UVM_ERROR apb_monitor.sv(46) @ 35: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 35: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 35: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x36b, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 35: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 35: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x36b, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 45: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 45: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 45: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x235, Data=0xaaeaaa50, op=WRITE, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 45: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x235, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 45: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x36b, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 45: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_write_seq.sv(33) @ 45: uvm_test_top.env.ahb_agnt.hsequencer@@bw_seq [SEQUENCE] Burst Write [0]: Addr=0x235 Data=0xaaeaaa50 Slave=2
+# UVM_ERROR apb_monitor.sv(46) @ 55: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 55: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(40) @ 55: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x235, Data=0xaaeaaa50, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 55: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 55: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x235, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 65: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 65: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 65: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x4fe, Data=0x55924419, op=WRITE, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 65: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x4fe, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 65: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x235, Data=0xaaeaaa50, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 65: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_write_seq.sv(33) @ 65: uvm_test_top.env.ahb_agnt.hsequencer@@bw_seq [SEQUENCE] Burst Write [1]: Addr=0x4fe Data=0x55924419 Slave=4
+# UVM_ERROR apb_monitor.sv(46) @ 75: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 75: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(40) @ 75: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x4fe, Data=0x55924419, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 75: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 75: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x4fe, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 85: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 85: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 85: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x13a, Data=0xf2f528f2, op=WRITE, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 85: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x13a, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 85: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x4fe, Data=0x55924419, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 85: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_write_seq.sv(33) @ 85: uvm_test_top.env.ahb_agnt.hsequencer@@bw_seq [SEQUENCE] Burst Write [2]: Addr=0x13a Data=0xf2f528f2 Slave=1
+# UVM_ERROR apb_monitor.sv(46) @ 95: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 95: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(40) @ 95: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x13a, Data=0xf2f528f2, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 95: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 95: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x13a, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 105: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 105: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 105: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x561, Data=0x5f78ea8f, op=WRITE, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 105: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x561, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 105: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x13a, Data=0xf2f528f2, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 105: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_write_seq.sv(33) @ 105: uvm_test_top.env.ahb_agnt.hsequencer@@bw_seq [SEQUENCE] Burst Write [3]: Addr=0x561 Data=0x5f78ea8f Slave=5
+# UVM_ERROR apb_monitor.sv(46) @ 115: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 115: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(40) @ 115: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x561, Data=0x5f78ea8f, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 115: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 115: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x561, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 125: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 125: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 125: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x21f, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 125: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x21f, HRESP=1
+# UVM_INFO ahb_monitor.sv(40) @ 125: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured WRITE transaction: Addr=0x561, Data=0x5f78ea8f, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 125: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_read_seq.sv(24) @ 125: uvm_test_top.env.ahb_agnt.hsequencer@@br_seq [SEQUENCE] Burst Read [0]: Addr=0x21f Slave=2
+# UVM_ERROR apb_monitor.sv(46) @ 135: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 135: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 135: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x21f, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 135: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 135: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x21f, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 145: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 145: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 145: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x4d6, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 145: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x4d6, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 145: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x21f, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 145: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_read_seq.sv(24) @ 145: uvm_test_top.env.ahb_agnt.hsequencer@@br_seq [SEQUENCE] Burst Read [1]: Addr=0x4d6 Slave=4
+# UVM_ERROR apb_monitor.sv(46) @ 155: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 155: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 155: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x4d6, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 155: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 155: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x4d6, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 165: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 165: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 165: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x6c4, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 165: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x6c4, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 165: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x4d6, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 165: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_read_seq.sv(24) @ 165: uvm_test_top.env.ahb_agnt.hsequencer@@br_seq [SEQUENCE] Burst Read [2]: Addr=0x6c4 Slave=6
+# UVM_ERROR apb_monitor.sv(46) @ 175: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 175: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 175: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x6c4, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 175: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 175: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x6c4, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 185: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 185: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 185: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0x2b1, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 185: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0x2b1, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 185: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x6c4, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 185: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO burst_read_seq.sv(24) @ 185: uvm_test_top.env.ahb_agnt.hsequencer@@br_seq [SEQUENCE] Burst Read [3]: Addr=0x2b1 Slave=2
+# UVM_ERROR apb_monitor.sv(46) @ 195: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 195: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 195: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x2b1, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 195: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 195: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0x2b1, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 205: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 205: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 205: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0xfff, Data=0x0, op=READ, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 205: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0xfff, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 205: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0x2b1, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 205: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO slave_access_fail_seq.sv(21) @ 205: uvm_test_top.env.ahb_agnt.hsequencer@@saf_seq [SEQUENCE] Slave Access Fail Test: Addr=0xfff Slave=7
+# UVM_ERROR apb_monitor.sv(46) @ 215: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 215: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_monitor.sv(43) @ 215: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0xfff, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 215: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_WARNING ahb_driver.sv(60) @ 215: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Invalid HRESP or HREADY signal during transaction. Addr=0xfff, HRESP=1
+# UVM_ERROR apb_monitor.sv(46) @ 225: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] PSELx is not set for any slave while PENABLE is high!
+# UVM_ERROR apb_monitor.sv(47) @ 225: uvm_test_top.env.apb_agnt.pmonitor [APB_MONITOR] Write operation with zero data at Addr=0xx
+# UVM_INFO ahb_driver.sv(40) @ 225: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Transaction started: Addr=0xe1ec0615, Data=0x6c1aaffc, op=RA@D, HREADY=1, HRESP=1
+# UVM_WARNING ahb_driver.sv(46) @ 225: uvm_test_top.env.ahb_agnt.hdriver [AHB_DRIVER] Warning: Error Response at Address 0xe1ec0615, HRESP=1
+# UVM_INFO ahb_monitor.sv(43) @ 225: uvm_test_top.env.ahb_agnt.hmonitor [AHB_MONITOR] Captured READ transaction: Addr=0xfff, Data=0x0, HRESP=1
+# UVM_WARNING scoreboard.sv(64) @ 225: uvm_test_top.env.scb [SCOREBOARD] APB Queue is empty, no APB transaction to compare.
+# UVM_INFO ahb_sequence.sv(19) @ 225: uvm_test_top.env.ahb_agnt.hsequencer@@aseq [AHB_SEQUENCE] Generated transaction:
+# --------------------------------------------------------------------------------------------
+# Name                           Type          Size  Value                                    
+# --------------------------------------------------------------------------------------------
+# req                            cmn_seq_item  -     @1292                                    
+#   begin_time                   time          64    215                                      
+#   end_time                     time          64    225                                      
+#   depth                        int           32    'd2                                      
+#   parent sequence (name)       string        4     aseq                                     
+#   parent sequence (full name)  string        41    uvm_test_top.env.ahb_agnt.hsequencer.aseq
+#   sequencer                    string        36    uvm_test_top.env.ahb_agnt.hsequencer     
+#   ADDR                         integral      32    'he1ec0615                               
+#   DATA                         integral      32    'h6c1aaffc                               
+#   SLAVE_NUMBER                 integral      3     'h4                                      
+#   operation                    integral      1     'h0X                                     
+#   BURSTMODE                    integral      3     'h0X                                     
+#   HSIZE                        integral      2     'h2                                      
+#   HRESP                        integral      1     'h1                                      
+# --------------------------------------------------------------------------------------------
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 225: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 225: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   59
+# UVM_WARNING :   45
+# UVM_ERROR :   47
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AHB_ASSERTION]     1
+# [AHB_DRIVER]    35
+# [AHB_MONITOR]    23
+# [AHB_SEQUENCE]     1
+# [APB_AGENT]     4
+# [APB_DRIVER]     1
+# [APB_MONITOR]    47
+# [MY_TEST]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]    22
+# [SEQUENCE]    11
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 225 ns  Iteration: 75  Instance: /tb_top
+# End time: 09:31:19 on Apr 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+End time: 09:31:19 on Apr 18,2025, Elapsed time: 0:00:10
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   1
+    vopt: Errors:   0, Warnings:   2
+    vsim: Errors:   0, Warnings:   1
+  Totals: Errors:   0, Warnings:   4

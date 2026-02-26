@@ -1,0 +1,110 @@
+<certe_dump>
+  <instance type=" my_test "> 
+     uvm_test_top 
+  
+     <instance type=" cmn_env "> 
+        env 
+  
+        <instance type=" ahb_agent "> 
+           ahb_agnt 
+  
+           <instance type=" ahb_driver "> 
+              hdriver 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 rsp_port 
+              </port> 
+  
+              <port if_type = "uvm_seq_item_pull_port" txn_type = "anonymous"> 
+                 seq_item_port 
+                 <connection>  uvm_test_top.env.ahb_agnt.hsequencer.seq_item_export  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <instance type=" ahb_monitor "> 
+              hmonitor 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 item_collected_port 
+                 <connection>  uvm_test_top.env.scb.ahb_port  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <instance type=" ahb_sequencer "> 
+              hsequencer 
+  
+              <export if_type = "uvm_analysis_export" txn_type = "anonymous"> 
+                 rsp_export 
+                 <connection>  uvm_test_top.env.ahb_agnt.hsequencer.sqr_rsp_analysis_fifo.analysis_export  </connection> 
+              </export> 
+  
+              <imp if_type = "uvm_seq_item_pull_imp" txn_type = "anonymous"> 
+                 seq_item_export 
+              </imp> 
+           </instance> 
+  
+        </instance> 
+  
+  
+        <instance type=" apb_agent "> 
+           apb_agnt 
+  
+           <instance type=" apb_driver "> 
+              pdriver 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 rsp_port 
+              </port> 
+  
+              <port if_type = "uvm_seq_item_pull_port" txn_type = "anonymous"> 
+                 seq_item_port 
+                 <connection>  uvm_test_top.env.apb_agnt.psequencer.seq_item_export  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <instance type=" apb_monitor "> 
+              pmonitor 
+  
+              <port if_type = "uvm_analysis_port" txn_type = "anonymous"> 
+                 item_collected_port 
+                 <connection>  uvm_test_top.env.scb.apb_port  </connection> 
+              </port> 
+           </instance> 
+  
+  
+           <instance type=" apb_sequencer "> 
+              psequencer 
+  
+              <export if_type = "uvm_analysis_export" txn_type = "anonymous"> 
+                 rsp_export 
+                 <connection>  uvm_test_top.env.apb_agnt.psequencer.sqr_rsp_analysis_fifo.analysis_export  </connection> 
+              </export> 
+  
+              <imp if_type = "uvm_seq_item_pull_imp" txn_type = "anonymous"> 
+                 seq_item_export 
+              </imp> 
+           </instance> 
+  
+        </instance> 
+  
+  
+        <instance type=" scoreboard "> 
+           scb 
+  
+           <imp if_type = "uvm_analysis_imp" txn_type = "anonymous"> 
+              ahb_port 
+           </imp> 
+  
+           <imp if_type = "uvm_analysis_imp" txn_type = "anonymous"> 
+              apb_port 
+           </imp> 
+        </instance> 
+  
+     </instance> 
+  
+  </instance> 
+  
+  </certe_dump>
